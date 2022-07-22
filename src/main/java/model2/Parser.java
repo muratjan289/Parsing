@@ -48,7 +48,6 @@ public class Parser {
         double deci = 0;
 
 
-
         NodeList itemChilds = itemNode.getChildNodes();
 
         for (int j = 0; j < itemChilds.getLength(); j++) {
@@ -60,8 +59,6 @@ public class Parser {
                     label = itemChilds.item(j).getTextContent();
                     break;
                 }
-
-
                 case TAG_BRAND: {
                     brand = itemChilds.item(j).getTextContent();
                     break;
@@ -212,10 +209,6 @@ public class Parser {
                     deci = Double.parseDouble(itemChilds.item(j).getTextContent());
                     break;
                 }
-
-
-
-
             }
         }
         Item item = new Item(label,brand,barcode,special_code,buyingPrice,categoryTree,price1,price2,price3,price4,price5,vendor_price_1,vendor_price_2,vendor_price_3,vendor_price_4,vendor_price_5,discounted_price,vendor_price_1_discounted,vendor_price_2_discounted,vendor_price_3_discounted,vendor_price_4_discounted,vendor_price_5_discounted,tax,currency,stockType,details,simoleDetail,stockCode,stockAmount,picture1Path,picture2Path,metaDescription,color,width,height,depth,weight,deci);

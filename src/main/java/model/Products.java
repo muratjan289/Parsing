@@ -10,6 +10,10 @@ public class Products {
         this.product = product;
     }
 
+    public Products() {
+
+    }
+
     public List<Product> getProduct() {
         return product;
     }

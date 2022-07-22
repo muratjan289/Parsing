@@ -9,31 +9,38 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import static model.BBKonstant.*;
+import static model.Parser_of_BB.ParserProduct.parsProduct;
+
 public class BBValid {
+
     public static void main(String[] args) {
+
 
         Products products = new Products();
 
-
-        Document docum;
+        Document doca;
         try {
-            docum = buildDocument();
-        }catch (Exception e){
-            System.out.println("Open parsing to error" + e.toString());
+            doca = buildDocument();
+        } catch (Exception e) {
+            System.out.println("Open parsing error" + e.toString());
             return;
         }
-        Node rootNode = docum.getFirstChild();
-        NodeList productsChilds = rootNode.getChildNodes();
 
-        Node productNode= null;
+        Node productsNode = doca.getFirstChild();
+        NodeList productsChilds = productsNode.getChildNodes();
 
-        for (int i =0; i< productsChilds.getLength() ; i++){
-            if(productsChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
+
+        Node productNode = null;
+
+        for (int i = 0; i < productsChilds.getLength(); i++) {
+
+
+            if (productsChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
                 continue;
             }
-
             switch (productsChilds.item(i).getNodeName()){
-                case TAG_NAME_PRODUCTS;{
+                case TAG_PRODUCT:{
                     productNode = productsChilds.item(i);
                     break;
                 }
@@ -42,28 +49,33 @@ public class BBValid {
         if (productNode == null){
             return;
         }
-        List<Product> productList = parsProduct(productNode)
 
-                products.setProduct(productList);
+        List<Product> productList = parsProduct(productNode);
 
+        products.setProduct(productList);
         System.out.println(products.toString());
     }
-    private static Document buildDocument() throws Exception{
+
+    private static Document buildDocument()throws Exception{
         File file = new File("bb-valid.xml");
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        return dbf.newDocumentBuilder().parse(file);
+        return  dbf.newDocumentBuilder().parse(file);
     }
 
-    private static List<Product> parsProduct(Node productNode){
-        List<Product> productList = new ArrayList<>();
-        NodeList productChilds = productNode.getChildNodes();
+    private static List<Product> parsList(Node productNode){
+        List <Product> productList  = new ArrayList<>();
+        NodeList productChilds  = productNode.getChildNodes();
 
-        for(int i = 0;i<productChilds.getLength();i++){
+        for (int i = 0; i<productChilds.getLength(); i++){
 
-            if(productChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
+            if (productChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
                 continue;
             }
-            switch ()
+            Product product = parsProduct(productChilds.item(i));
+            productList.add(product);
         }
+        return productList;
     }
+
+
 }
