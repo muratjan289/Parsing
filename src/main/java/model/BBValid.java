@@ -32,6 +32,7 @@ public class BBValid {
 
 
         Node productNode = null;
+        Node imagesNode = null;
 
         for (int i = 0; i < productsChilds.getLength(); i++) {
 
@@ -53,7 +54,10 @@ public class BBValid {
         List<Product> productList = parsProduct(productNode);
 
         products.setProduct(productList);
+
+
         System.out.println(products.toString());
+
     }
 
     private static Document buildDocument()throws Exception{

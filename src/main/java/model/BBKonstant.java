@@ -3,10 +3,10 @@ package model;
 public final class BBKonstant {
 
     public static final String TAG_PRODUCT = "product";
-    public static final String TAG_CODE ="CODE";
+    public static final String TAG_CODE ="code";
     public static final String TAG_WS_CODE = "ws_code";
     public static final String TAG_BARCODE = "barcode";
-    public static final String TAG_SUPPLIER_CODE = "SUPPLIER_CODE";
+    public static final String TAG_SUPPLIER_CODE = "supplier_code";
     public static final String TAG_NAME = "name";
     public static final String TAG_CAT_1_NAME = "cat1name";
     public static final String TAG_CAT_1_CODE = "cat1code";
@@ -37,7 +37,7 @@ public final class BBKonstant {
     public static final String TAG_SEO_DESCRIPTION= "seo_description";
     public static final String TAG_SEO_KEYWORDS  = "seo_keywords";
     public static final String TAG_IMAGES = "images";
-    public static final String TAG_IMAGE_ITEM = "image_item";
+    public static final String TAG_IMG_ITEM = "img_item";
     public static final String TAG_SUBPRODUCTS ="subproducts";
     public static final String TAG_SUBPRODUCT = "subproduct";
     public static final String TAG_VARYANT_GROUP_ID = "VaryantGroupID";

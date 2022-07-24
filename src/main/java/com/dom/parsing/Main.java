@@ -61,6 +61,7 @@ public class Main {
         root.setItem(itemList);
 
         System.out.println("Root" + root.toString());
+
     }
 
     private static Document buildDocument() throws Exception {
