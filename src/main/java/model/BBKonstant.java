@@ -42,7 +42,7 @@ public final class BBKonstant {
     public static final String TAG_SUBPRODUCT = "subproduct";
     public static final String TAG_VARYANT_GROUP_ID = "VaryantGroupID";
     public static final String TAG_S_CODE = "code";
-    public static final String TAG_S_WS_CODE = "ws_code";
+    public final static String TAG_S_WS_CODE = "ws_code";
     public static final String TAG_TYPE_1 = "type1";
     public static final String TAG_TYPE_2 = "type2";
     public static final String TAG_S_BARCODE = "barcode";

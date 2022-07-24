@@ -6,10 +6,9 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
-import static model.BBKonstant.*;
+import static model.BBKonstant.TAG_PRODUCT;
 import static model.Parser_of_BB.ParserProduct.parsProduct;
 
 public class BBValid {
@@ -34,6 +33,7 @@ public class BBValid {
         Node productNode = null;
         Node imagesNode = null;
 
+
         for (int i = 0; i < productsChilds.getLength(); i++) {
 
 
@@ -53,7 +53,11 @@ public class BBValid {
 
         List<Product> productList = parsProduct(productNode);
 
+//        List<Images> imagesList  = parsImages(imagesNode);
+
+
         products.setProduct(productList);
+
 
 
         System.out.println(products.toString());
@@ -66,20 +70,20 @@ public class BBValid {
         return  dbf.newDocumentBuilder().parse(file);
     }
 
-    private static List<Product> parsList(Node productNode){
-        List <Product> productList  = new ArrayList<>();
-        NodeList productChilds  = productNode.getChildNodes();
-
-        for (int i = 0; i<productChilds.getLength(); i++){
-
-            if (productChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
-                continue;
-            }
-            Product product = parsProduct(productChilds.item(i));
-            productList.add(product);
-        }
-        return productList;
-    }
+//    private static List<Product> parsList(Node productNode){
+//        List <Product> productList  = new ArrayList<>();
+//        NodeList productChilds  = productNode.getChildNodes();
+//
+//        for (int i = 0; i<productChilds.getLength(); i++){
+//
+//            if (productChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
+//                continue;
+//            }
+//            Product product = parsProduct(productChilds.item(i));
+//            productList.add(product);
+//        }
+//        return productList;
+//    }
 
 
 }

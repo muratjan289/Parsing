@@ -1,6 +1,21 @@
 package model;
 
+import java.util.List;
+
 public class Images {
+
+   private List<Images> images;
+
+
+
+   public List<Images> getImages() {
+      return images;
+   }
+
+   public void setImages(List<Images> images) {
+      this.images = images;
+   }
+
    private String img_item;
 
    public Images(String img_item) {

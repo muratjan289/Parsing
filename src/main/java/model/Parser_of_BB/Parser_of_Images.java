@@ -13,7 +13,7 @@ public class Parser_of_Images {
 
 
 
-    private static List<Images> parsImages(Node imagesNode){
+    public static List<Images> parsImages(Node imagesNode){
         List <Images> imagesList  = new ArrayList<>();
         NodeList imagesChilds  = imagesNode.getChildNodes();
 
@@ -22,14 +22,19 @@ public class Parser_of_Images {
             if (imagesChilds.item(i).getNodeType() != Node.ELEMENT_NODE){
                 continue;
             }
+            if (!imagesChilds.item(i).getNodeName().equals(TAG_IMG_ITEM)) {
+                continue;
+            }
             Images images = parseImages(imagesChilds.item(i));
             imagesList.add(images);
         }
+
         return imagesList;
     }
 
     public static Images parseImages(Node imagesNode) {
      String img_item = "";
+
         NodeList imagesChilds = imagesNode.getChildNodes();
 
 

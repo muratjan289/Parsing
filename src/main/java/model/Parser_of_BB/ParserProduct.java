@@ -13,9 +13,11 @@ import static model.BBKonstant.*;
 public class ParserProduct {
 
      static Node imagesNode =null;
-     
+
 
     public static Product parsProduct(Node productNode ) {
+
+
          int code = 0;
          String ws_code = "";
          String barcode ="";
@@ -50,9 +52,12 @@ public class ParserProduct {
          String seo_title="";
          String seo_description="";
          String seo_keywords="";
-         List <Images> images =null;
-         List <Subproducts> subproducts = null;
+         List<Images> images = null;
 
+         List <Subproducts> subproducts = null;
+         
+
+         Node subproductsNode = null;
 
          NodeList productChilds = productNode.getChildNodes();
          for (int j = 0; j < productChilds.getLength(); j++) {
@@ -197,12 +202,10 @@ public class ParserProduct {
                         imagesNode = productChilds.item(j);
                         break;
                    }
-
-
-
-
-
-
+                   case TAG_SUBPRODUCTS:{
+                        subproductsNode =productChilds.item(j);
+                        break;
+                   }
 
               }
          }
